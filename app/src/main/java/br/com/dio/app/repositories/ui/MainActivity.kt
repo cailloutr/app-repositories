@@ -50,6 +50,11 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                     binding.ivEmpty.visibility = View.GONE
                     binding.tvEmpty.visibility = View.GONE
                     adapter.submitList(it.list)
+
+                    if (it.list.isEmpty()) {
+                        binding.ivEmpty.visibility = View.VISIBLE
+                        binding.tvEmpty.visibility = View.VISIBLE
+                    }
                 }
             }
         })
