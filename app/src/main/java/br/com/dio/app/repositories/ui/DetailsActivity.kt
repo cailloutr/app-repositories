@@ -30,8 +30,8 @@ class DetailsActivity : AppCompatActivity() {
                 .placeholder(R.drawable.ic_baseline_image_24)
                 .into(binding.ivOwner)
 
-            binding.tvRepoName.text = it.name
-            binding.tvRepoLanguage.text = it.language
+            binding.tvRepoName.text = "Name: ${it.name}"
+            binding.tvRepoLanguage.text = "Languages: ${it.language}"
             binding.chipStar.text = it.stargazersCount.toString()
             binding.tvRepoDescription.text = it.description
         }
