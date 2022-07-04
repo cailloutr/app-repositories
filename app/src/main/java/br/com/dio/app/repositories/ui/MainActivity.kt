@@ -3,9 +3,11 @@ package br.com.dio.app.repositories.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
+import androidx.transition.Visibility
 import br.com.dio.app.repositories.R
 import br.com.dio.app.repositories.core.createDialog
 import br.com.dio.app.repositories.core.createProgressDialog
@@ -39,10 +41,14 @@ class MainActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                     dialog.dismiss()
                 }
                 MainViewModel.State.Loading -> {
+                    binding.ivEmpty.visibility = View.GONE
+                    binding.tvEmpty.visibility = View.GONE
                     dialog.show()
                 }
                 is MainViewModel.State.Success -> {
                     dialog.dismiss()
+                    binding.ivEmpty.visibility = View.GONE
+                    binding.tvEmpty.visibility = View.GONE
                     adapter.submitList(it.list)
                 }
             }
